@@ -1,1 +1,138 @@
 some
+
+INSERT INTO departments (id,name) VALUES
+(5,'sale'),
+(8,'operations');
+
+by
+saik20219
+.
+1:40 pm
+Broadcast to all
+SET FOREIGN_KEY_CHECKS = 0;
+
+by
+saik20219
+.
+1:43 pm
+Broadcast to all
+INSERT INTO departments (id, name) VALUES
+(5, 'Sales'),
+(8, 'Operations');
+
+by
+saik20219
+.
+1:43 pm
+Broadcast to all
+CREATE DATABASE company;
+use company;
+CREATE TABLE departments (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+    );
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT CHECK (age > 18),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(id)
+);
+SELECT* FROM employees;
+SELECT name,age FROM employees;
+SELECT * FROM employees WHERE age >20;
+
+by
+saik20219
+.
+1:46 pm
+Broadcast to all
+INSERT INTO departments (id, name) VALUES
+(1,'HR'),
+(2,'IT'),
+(3,'Finance'),
+(4,'marketing');
+SELECT* FROM employees WHERE department_id=2;
+INSERT INTO employees (id,name,age,department_id) VALUES
+(101,'John',25,1),
+(102,'ria',34,5),
+(103,'diya',67,8);
+INSERT INTO departments (id,name) VALUES
+(5,'sale'),
+(8,'operations');
+
+by
+saik20219
+.
+1:46 pm
+Broadcast to all
+SELECT e.department_id 
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.id
+WHERE d.id IS NULL;
+
+by
+saik20219
+.
+1:56 pm
+Broadcast to all
+UPDATE employees
+SET department_id = 1  -- Replace with a valid department ID
+WHERE department_id NOT IN (SELECT id FROM departments);
+
+by
+saik20219
+.
+1:57 pm
+Broadcast to all
+ALTER TABLE employees
+ADD CONSTRAINT fk_department
+FOREIGN KEY (department_id)
+REFERENCES departments(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+by
+saik20219
+.
+1:57 pm
+Broadcast to all
+SHOW CREATE TABLE employees;
+'
+
+by
+saik20219
+.
+1:57 pm
+Broadcast to all
+INSERT INTO employees (id, name, age, department_id) VALUES
+(101, 'John', 25, 1),
+(102, 'Ria', 34, 5),
+(103, 'Diya', 67, 8);
+
+by
+saik20219
+.
+1:57 pm
+Broadcast to all
+DELETE FROM employees
+WHERE department_id NOT IN (SELECT id FROM departments);
+
+by
+saik20219
+.
+1:58 pm
+Broadcast to all
+SELECT * FROM departments;
+
+by
+saik20219
+.
+2:01 pm
+Broadcast to all
+INSERT INTO departments (id, name) VALUES (10, 'sales'), (11, 'operations');
+
+by
+saik20219
+.
+2:02 pm
