@@ -1,5 +1,4 @@
-some
-
+Broadcast to all
 INSERT INTO departments (id,name) VALUES
 (5,'sale'),
 (8,'operations');
@@ -136,3 +135,45 @@ by
 saik20219
 .
 2:02 pm
+Broadcast to all
+UPDATE departments
+SET name = 'sales'
+WHERE id = 5;
+
+by
+saik20219
+.
+2:02 pm
+Broadcast to all
+DELETE FROM departments WHERE id = 5;
+
+INSERT INTO departments (id, name) VALUES (5, 'sales'), (8, 'operations');
+
+by
+saik20219
+.
+2:02 pm
+Broadcast to all
+SELECT students.name, departments.name AS department_name
+FROM students
+INNER JOIN departments ON students.department_id = departments.id;
+
+by
+saik20219
+.
+2:45 pm
+Broadcast to all
+CREATE TABLE workers (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    dept_id INT,
+    FOREIGN KEY (dept_id) 
+        REFERENCES dept_1(id) 
+        ON UPDATE CASCADE
+);
+UPDATE dept_1 SET id = 2 WHERE id = 1;
+
+by
+saik20219
+.
+2:47 pm
